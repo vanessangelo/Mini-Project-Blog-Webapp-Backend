@@ -3,6 +3,7 @@ const {
   setFromFileNameToDBValueProfile,
   getFileNameFromDbValue,
   getAbsolutePathPublicFileProfile,
+  getAbsolutePathPublicFileBlog,
 } = require("../helper");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
@@ -78,10 +79,9 @@ module.exports = {
         message: "Profile image change successful",
       });
     } catch (error) {
-      console.log(error);
-      return res.status(500).send({
-        message: "Internal Server Error",
-      });
+      res
+        .status(500)
+        .send({ message: "Fatal error on server", errors: error.message });
     }
   },
 
@@ -162,10 +162,9 @@ module.exports = {
         });
       }
     } catch (error) {
-      console.log(error);
-      return res.status(500).send({
-        message: "Internal Server Error",
-      });
+      res
+        .status(500)
+        .send({ message: "Fatal error on server", errors: error.message });
     }
   },
 
@@ -202,10 +201,52 @@ module.exports = {
         message: "Successfully change the password. Try logging in now!",
       });
     } catch (error) {
-      console.log(error);
-      return res.status(500).send({
-        message: "Internal Server Error",
-      });
+      res
+        .status(500)
+        .send({ message: "Fatal error on server", errors: error.message });
+    }
+  },
+
+  async deleteUser(req, res) {
+    const userId = req.user.id;
+
+    try {
+      // Find the user by ID
+      const user = await db.User.findByPk(userId, { include: db.Blog });
+
+      if (!user) {
+        return res.status(404).send({ message: "User not found" });
+      }
+
+      // Get the profile image path
+      const imgProfile = user.getDataValue("imgProfile");
+
+      // Delete associated imgBlog files
+      const blogs = user.Blogs;
+      for (const blog of blogs) {
+        const imgBlog = blog.getDataValue("imgBlog");
+        if (imgBlog) {
+          fs.unlinkSync(
+            getAbsolutePathPublicFileBlog(getFileNameFromDbValue(imgBlog))
+          );
+        }
+      }
+
+      // Delete the user
+      await user.destroy();
+
+      // Delete the profile image file if it exists
+      if (imgProfile) {
+        fs.unlinkSync(
+          getAbsolutePathPublicFileProfile(getFileNameFromDbValue(imgProfile))
+        );
+      }
+
+      res.status(200).send({ message: "User deleted successfully" });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Fatal error on server", errors: error.message });
     }
   },
 };

@@ -9,6 +9,7 @@ router.use(authMiddleware.verifyToken);
 
 // get profile
 router.get("/", userController.getMyProfile);
+router.delete("/", userController.deleteUser);
 
 // change profile picture
 router.patch(
