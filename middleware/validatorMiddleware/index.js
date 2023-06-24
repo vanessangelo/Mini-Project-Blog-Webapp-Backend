@@ -217,7 +217,15 @@ module.exports = {
       .optional()
       .isLength({ max: 50 })
       .withMessage("Maximun keywords length is 50 characters"),
-    body("category_id").notEmpty().withMessage("Category is required"),
+    body("category_id")
+      .notEmpty()
+      .withMessage("Category is required")
+      .custom((value, { req }) => {
+        if (value >= 7 || value <= 0) {
+          throw new Error("Category is not listed");
+        }
+        return true;
+      }),
     body("link_URL")
       .optional()
       .isURL()
@@ -253,7 +261,14 @@ module.exports = {
       .optional()
       .isLength({ max: 50 })
       .withMessage("Maximun keywords length is 50 characters"),
-    body("category_id").optional(),
+    body("category_id")
+      .optional()
+      .custom((value, { req }) => {
+        if (value >= 7 || value <= 0) {
+          throw new Error("Category is not listed");
+        }
+        return true;
+      }),
     body("link_URL")
       .optional()
       .isURL()

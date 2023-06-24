@@ -15,11 +15,6 @@ module.exports = {
       if (req.file) {
         imgBlog = setFromFileNameToDBValueBlog(req.file.filename);
       }
-      if (category_id >= 7 && category_id <= 0) {
-        return res.status(400).send({
-          message: "Category is not listed",
-        });
-      }
 
       const blogs = await db.Blog.create({
         author_id: req.user.id,
@@ -230,11 +225,6 @@ module.exports = {
       }
       if (keywords) {
         getBlog.keywords = keywords;
-      }
-      if (category_id >= 7 && category_id <= 0) {
-        return res.status(400).send({
-          message: "Category is not listed",
-        });
       }
       if (category_id) {
         getBlog.category_id = category_id;
