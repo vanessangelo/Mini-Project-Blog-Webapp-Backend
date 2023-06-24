@@ -1,0 +1,656 @@
+{
+	"info": {
+		"_postman_id": "6386bb0b-8233-4356-a5cb-37d0f53d1116",
+		"name": "Mini_Project2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"van+1\",\r\n  \"email\": \"vanessagreenangelo+1@gmail.com\",\r\n  \"phone\": \"0868773686284\",\r\n  \"password\": \"!Password12\",\r\n  \"confirmPassword\": \"!Password12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/auth/register",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/auth/verify?token=067e58e8833c272579dd73573e6f18c6d37c413e",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"auth",
+								"verify"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "067e58e8833c272579dd73573e6f18c6d37c413e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"credential\": \"van+1\",\r\n    \"password\": \"!Password12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/auth/login",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"vanessagreenangelo+1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/auth/forget-password",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"auth",
+								"forget-password"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"!Password12\",\r\n    \"confirmNewPassword\": \"!Password12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/auth/reset-password?token=7de24c1ace55e3b0810cb950760050f915ebb8b8",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "7de24c1ace55e3b0810cb950760050f915ebb8b8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Change Profile Picture",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Change Credential",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"vanessagreenangelo+2@gmail.com\",\r\n    \"username\": \"van+1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/user/profile/change-credential",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"change-credential"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"!Password12\",\r\n    \"newPassword\": \"!Password13\",\r\n    \"confirmNewPassword\": \"!Password13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/user/profile/change-password",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update My Blog",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "title",
+									"value": "halo ini update blog",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "keywords",
+									"value": "ini juga ganti",
+									"type": "default"
+								},
+								{
+									"key": "category_id",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/user/my-blog/:id",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"my-blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/user",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Liked Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/user/liked-blog?page",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"liked-blog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/user/my-blog",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"my-blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete My Blog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/user/delete-blog/:id",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"delete-blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete My Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/user",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Create Blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Van/Desktop/cattct.jpg"
+								},
+								{
+									"key": "title",
+									"value": "1 2 3",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "testing testing testing testing testing testingtestingtestingtestingtestingtesting testing",
+									"type": "default"
+								},
+								{
+									"key": "keywords",
+									"value": "hello",
+									"description": "optional",
+									"type": "default"
+								},
+								{
+									"key": "category_id",
+									"value": "3",
+									"type": "default"
+								},
+								{
+									"key": "link_URL",
+									"value": "www.google.com",
+									"description": "optional",
+									"type": "default"
+								},
+								{
+									"key": "country",
+									"value": "moewworld",
+									"description": "optional",
+									"type": "default",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog?page&limitPerPage&search&category&sortBy=DESC",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "limitPerPage",
+									"value": null
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "category",
+									"value": null
+								},
+								{
+									"key": "sortBy",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog/all-category",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog",
+								"all-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Likes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog/top-likes",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog",
+								"top-likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unlike Blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog/:action/:id",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog",
+								":action",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "action",
+									"value": "unlike"
+								},
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like Blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog/:action/:id",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog",
+								":action",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "action",
+									"value": "like"
+								},
+								{
+									"key": "id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blog/:id",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ACCESS_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_PATH",
+			"value": "http://localhost:8000",
+			"type": "default"
+		},
+		{
+			"key": "ACCESS_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg3NjAwNzM0LCJleHAiOjE2ODc2MDQzMzR9.uOjS_euLFhdhvd0wdqV_oTbJItRYwBmdt9X9YI0_Ipk",
+			"type": "default"
+		}
+	]
+}
