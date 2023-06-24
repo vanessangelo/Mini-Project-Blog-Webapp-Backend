@@ -135,7 +135,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_PATH}}/auth/reset-password?token=",
+							"raw": "{{BASE_PATH}}/auth/reset-password?token=b3f5794810436d35bafa3bfbf45001bdb5ecc7fb",
 							"host": [
 								"{{BASE_PATH}}"
 							],
@@ -146,7 +146,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": ""
+									"value": "b3f5794810436d35bafa3bfbf45001bdb5ecc7fb"
 								}
 							]
 						}
@@ -194,7 +194,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"\",\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"email\": \"\",\r\n    \"phone\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,7 +222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"oldPassword\": \"!Password12\",\r\n    \"newPassword\": \"!Password13\",\r\n    \"confirmNewPassword\": \"!Password13\"\r\n}",
+							"raw": "{\r\n    \"oldPassword\": \"\",\r\n    \"newPassword\": \"\",\r\n    \"confirmNewPassword\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -449,40 +449,47 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": []
+									"src": [],
+									"disabled": true
 								},
 								{
 									"key": "title",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "content",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "keywords",
 									"value": "",
 									"description": "optional",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "category_id",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "link_URL",
 									"value": "",
 									"description": "optional",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "country",
 									"value": "",
 									"description": "optional",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								}
 							],
 							"options": {
@@ -708,7 +715,7 @@
 		},
 		{
 			"key": "ACCESS_TOKEN",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjg3NjE2MjkzLCJleHAiOjE2ODc2MTk4OTN9.0C-X_bD1Ux9ejB5S8vNN3U3MIO2Oz38jHu88dW6ViGY",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg3NjMxOTg3LCJleHAiOjE2ODc2MzU1ODd9.WnQwh8QfRIn9oV5ENcB1WEakQwLUkvneUR2Cs5kGa-I",
 			"type": "default"
 		}
 	]
