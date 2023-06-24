@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"van+1\",\r\n  \"email\": \"vanessagreenangelo+1@gmail.com\",\r\n  \"phone\": \"0868773686284\",\r\n  \"password\": \"!Password12\",\r\n  \"confirmPassword\": \"!Password12\"\r\n}",
+							"raw": "{\r\n  \"username\": \"\",\r\n  \"email\": \"\",\r\n  \"phone\": \"\",\r\n  \"password\": \"\",\r\n  \"confirmPassword\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -41,7 +41,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_PATH}}/auth/verify?token=067e58e8833c272579dd73573e6f18c6d37c413e",
+							"raw": "{{BASE_PATH}}/auth/verify?token=",
 							"host": [
 								"{{BASE_PATH}}"
 							],
@@ -52,7 +52,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "067e58e8833c272579dd73573e6f18c6d37c413e"
+									"value": ""
 								}
 							]
 						}
@@ -66,7 +66,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"credential\": \"van+1\",\r\n    \"password\": \"!Password12\"\r\n}",
+							"raw": "{\r\n    \"credential\": \"\",\r\n    \"password\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -93,7 +93,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"vanessagreenangelo+1@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"email\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,7 +127,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"newPassword\": \"!Password12\",\r\n    \"confirmNewPassword\": \"!Password12\"\r\n}",
+							"raw": "{\r\n    \"newPassword\": \"\",\r\n    \"confirmNewPassword\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,7 +135,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_PATH}}/auth/reset-password?token=7de24c1ace55e3b0810cb950760050f915ebb8b8",
+							"raw": "{{BASE_PATH}}/auth/reset-password?token=",
 							"host": [
 								"{{BASE_PATH}}"
 							],
@@ -146,7 +146,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "7de24c1ace55e3b0810cb950760050f915ebb8b8"
+									"value": ""
 								}
 							]
 						}
@@ -162,7 +162,28 @@
 					"name": "Change Profile Picture",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/user/profile/change-picture",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"change-picture"
+							]
+						}
 					},
 					"response": []
 				},
@@ -173,7 +194,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"vanessagreenangelo+2@gmail.com\",\r\n    \"username\": \"van+1\"\r\n}",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -233,27 +254,47 @@
 								{
 									"key": "file",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "title",
-									"value": "halo ini update blog",
-									"type": "default"
+									"value": "",
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "content",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "keywords",
-									"value": "ini juga ganti",
-									"type": "default"
+									"value": "",
+									"description": "optional",
+									"type": "default",
+									"disabled": true
 								},
 								{
 									"key": "category_id",
 									"value": "",
-									"type": "default"
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "link_URL",
+									"value": "",
+									"description": "optional",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "",
+									"description": "optional",
+									"type": "default",
+									"disabled": true
 								}
 							]
 						},
@@ -270,7 +311,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "16"
 								}
 							]
 						}
@@ -300,7 +341,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_PATH}}/user/liked-blog?page",
+							"raw": "{{BASE_PATH}}/user/liked-blog?page&limitPerPage",
 							"host": [
 								"{{BASE_PATH}}"
 							],
@@ -311,6 +352,10 @@
 							"query": [
 								{
 									"key": "page",
+									"value": null
+								},
+								{
+									"key": "limitPerPage",
 									"value": null
 								}
 							]
@@ -324,13 +369,23 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_PATH}}/user/my-blog",
+							"raw": "{{BASE_PATH}}/user/my-blog?page&pagePerLimit",
 							"host": [
 								"{{BASE_PATH}}"
 							],
 							"path": [
 								"user",
 								"my-blog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "pagePerLimit",
+									"value": null
+								}
 							]
 						}
 					},
@@ -354,7 +409,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": ""
 								}
 							]
 						}
@@ -394,41 +449,40 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/Van/Desktop/cattct.jpg"
+									"src": []
 								},
 								{
 									"key": "title",
-									"value": "1 2 3",
+									"value": "",
 									"type": "default"
 								},
 								{
 									"key": "content",
-									"value": "testing testing testing testing testing testingtestingtestingtestingtestingtesting testing",
+									"value": "",
 									"type": "default"
 								},
 								{
 									"key": "keywords",
-									"value": "hello",
+									"value": "",
 									"description": "optional",
 									"type": "default"
 								},
 								{
 									"key": "category_id",
-									"value": "3",
+									"value": "",
 									"type": "default"
 								},
 								{
 									"key": "link_URL",
-									"value": "www.google.com",
+									"value": "",
 									"description": "optional",
 									"type": "default"
 								},
 								{
 									"key": "country",
-									"value": "moewworld",
+									"value": "",
 									"description": "optional",
-									"type": "default",
-									"disabled": true
+									"type": "default"
 								}
 							],
 							"options": {
@@ -457,7 +511,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_PATH}}/blog?page&limitPerPage&search&category&sortBy=DESC",
+							"raw": "{{BASE_PATH}}/blog?page&limitPerPage&search&category&sortBy=",
 							"host": [
 								"{{BASE_PATH}}"
 							],
@@ -475,15 +529,18 @@
 								},
 								{
 									"key": "search",
-									"value": null
+									"value": null,
+									"description": "by title and or keyword"
 								},
 								{
 									"key": "category",
-									"value": null
+									"value": null,
+									"description": "category_id"
 								},
 								{
 									"key": "sortBy",
-									"value": "DESC"
+									"value": "",
+									"description": "default = DESC"
 								}
 							]
 						}
@@ -544,11 +601,12 @@
 							"variable": [
 								{
 									"key": "action",
-									"value": "unlike"
+									"value": "unlike",
+									"description": "unlike a blog"
 								},
 								{
 									"key": "id",
-									"value": "2"
+									"value": ""
 								}
 							]
 						}
@@ -573,11 +631,12 @@
 							"variable": [
 								{
 									"key": "action",
-									"value": "like"
+									"value": "like",
+									"description": "like a blog"
 								},
 								{
 									"key": "id",
-									"value": "15"
+									"value": ""
 								}
 							]
 						}
@@ -601,7 +660,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "2"
+									"value": ""
 								}
 							]
 						}
@@ -649,7 +708,7 @@
 		},
 		{
 			"key": "ACCESS_TOKEN",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg3NjAwNzM0LCJleHAiOjE2ODc2MDQzMzR9.uOjS_euLFhdhvd0wdqV_oTbJItRYwBmdt9X9YI0_Ipk",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjg3NjE2MjkzLCJleHAiOjE2ODc2MTk4OTN9.0C-X_bD1Ux9ejB5S8vNN3U3MIO2Oz38jHu88dW6ViGY",
 			"type": "default"
 		}
 	]
