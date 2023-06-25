@@ -242,6 +242,7 @@ module.exports = {
           fs.unlinkSync(getAbsolutePathPublicFileBlog(oldFileName));
         }
         getBlog.imgBlog = setFromFileNameToDBValueBlog(req.file.filename);
+        console.log(setFromFileNameToDBValueBlog(req.file.filename));
       }
 
       await getBlog.save();

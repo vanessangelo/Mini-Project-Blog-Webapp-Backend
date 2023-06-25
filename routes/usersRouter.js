@@ -2,7 +2,8 @@ const router = require("express").Router();
 const blogController = require("../controller/blogController");
 const userController = require("../controller/userController");
 const authMiddleware = require("../middleware/authMiddleware");
-const multerMiddleware = require("../middleware/multerMiddleware/profile");
+const multerMiddlewareProfile = require("../middleware/multerMiddleware/profile");
+const multerMiddlewareBlog = require("../middleware/multerMiddleware/blog");
 const validatorMiddleware = require("../middleware/validatorMiddleware");
 
 router.use(authMiddleware.verifyToken);
@@ -14,7 +15,7 @@ router.delete("/", userController.deleteUser);
 // change profile picture
 router.patch(
   "/profile/change-picture",
-  multerMiddleware.single("file"),
+  multerMiddlewareProfile.single("file"),
   userController.changeImgProfile
 );
 
@@ -39,7 +40,7 @@ router.get("/my-blog", blogController.getMyBlog);
 router.patch(
   "/my-blog/:id",
   authMiddleware.verifyIsVerified,
-  multerMiddleware.single("file"),
+  multerMiddlewareBlog.single("file"),
   validatorMiddleware.validateUpdateBlog,
   blogController.updateMyBlog
 );
