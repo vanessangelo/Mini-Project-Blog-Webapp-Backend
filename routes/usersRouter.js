@@ -47,7 +47,7 @@ router.patch(
 
 // delete blog
 router.delete(
-  "/delete-blog/:id",
+  "/my-blog/:id",
   authMiddleware.verifyIsVerified,
   blogController.deleteMyBlog
 );

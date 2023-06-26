@@ -253,8 +253,8 @@
 							"formdata": [
 								{
 									"key": "file",
-									"value": "",
-									"type": "default",
+									"type": "file",
+									"src": [],
 									"disabled": true
 								},
 								{
@@ -311,7 +311,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "16"
+									"value": ""
 								}
 							]
 						}
@@ -397,13 +397,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_PATH}}/user/delete-blog/:id",
+							"raw": "{{BASE_PATH}}/user/my-blog/:id",
 							"host": [
 								"{{BASE_PATH}}"
 							],
 							"path": [
 								"user",
-								"delete-blog",
+								"my-blog",
 								":id"
 							],
 							"variable": [
@@ -449,20 +449,17 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": [],
-									"disabled": true
+									"src": []
 								},
 								{
 									"key": "title",
 									"value": "",
-									"type": "default",
-									"disabled": true
+									"type": "default"
 								},
 								{
 									"key": "content",
 									"value": "",
-									"type": "default",
-									"disabled": true
+									"type": "default"
 								},
 								{
 									"key": "keywords",
@@ -474,8 +471,7 @@
 								{
 									"key": "category_id",
 									"value": "",
-									"type": "default",
-									"disabled": true
+									"type": "default"
 								},
 								{
 									"key": "link_URL",
@@ -715,7 +711,7 @@
 		},
 		{
 			"key": "ACCESS_TOKEN",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg3NjMxOTg3LCJleHAiOjE2ODc2MzU1ODd9.WnQwh8QfRIn9oV5ENcB1WEakQwLUkvneUR2Cs5kGa-I",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg3NzgyODIxLCJleHAiOjE2ODc3ODY0MjF9.X53n5w_z0bzCQo1PmbB8oWSGiBL3Zty70QDcZInYFVw",
 			"type": "default"
 		}
 	]
